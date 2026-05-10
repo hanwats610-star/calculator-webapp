@@ -1,59 +1,121 @@
+/* 1. Global Reset & Variables */
+:root {
+    /* Industry style: Saare colors ek jagah define karo */
+    --bg-gradient: linear-gradient(45deg, #0a0a0a, #3a4452);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --primary-orange: #fb7c14;
+    --operator-green: #6dee0a;
+    --text-white: #ffffff;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+    --border-color: #717377;
+    --font-main: 'Poppins', sans-serif;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-main);
 }
 
-body{
+/* 2. Layout Positioning */
+body {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+    background: var(--bg-gradient);
 }
-.calculator{
-    border: 1px solid #717377;
-    padding: 20px;
-    border-radius: 16px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgba(113, 115, 119. 0.5);
 
+/* 3. Calculator Card */
+.calculator-card {
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0px 10px 30px var(--shadow-dark);
 }
-input{
+
+.calc-header h1 {
+    color: var(--text-white);
+    font-size: 14px;
+    opacity: 0.5;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 4. Input/Display Style */
+#inputBox {
     width: 320px;
     border: none;
     padding: 24px;
-    margin: 10px;
+    margin-bottom: 20px;
     background: transparent;
-    box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
-    font-size: 40px;
+    font-size: 45px;
     text-align: right;
-    cursor: pointer;
-    color: #ffffff;
+    color: var(--text-white);
+    outline: none;
 }
-input::placeholder{
-    color: #ffffff;
-}
-button{
-    border: none;
-    width:  60px;
-     height: 60px;
-     margin: 10px;
-     border-radius: 50%;
-     background: transparent;
-    color: #ffffff;
-    font-size: 20px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-}
-.equalsBtn{
-    background-color: #fb7c14;
 
+#inputBox::placeholder {
+    color: rgba(255, 255, 255, 0.3);
 }
-.operator{
-    color: #6dee0a;
+
+/* 5. Buttons Grid */
+.buttons-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    color: var(--text-white);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: -4px -4px 10px var(--shadow-light), 
+                4px 4px 10px var(--shadow-dark);
+    transition: all 0.2s ease; /* Smooth hover effect */
+}
+
+/* 6. Interaction & States */
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: -2px -2px 5px var(--shadow-light), 
+                2px 2px 5px var(--shadow-dark);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Specific Button Classes */
+.operator {
+    color: var(--operator-green);
+}
+
+.equalsBtn {
+    background-color: var(--primary-orange);
+    color: #000;
+    font-weight: bold;
+}
+
+.equalsBtn:hover {
+    background-color: #e66d0d;
 }
