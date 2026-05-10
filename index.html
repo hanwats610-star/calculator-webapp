@@ -3,43 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Calculator | Project One</title>
     <link rel="stylesheet" href="style.css">
-    <title>Calculator</title>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" placeholder="0" id="inputBox">
-        <div>
-            <button class ="operator">AC</button>
-            <button class ="operator">DEL</button>
-            <button class ="operator">%</button>
-            <button class ="operator">/</button>
+
+    <main class="calculator-card">
+        
+        <header class="calc-header">
+            <h1>CalcPro v1.0</h1>
+        </header>
+
+        <div class="display-container">
+            <input 
+                type="text" 
+                id="inputBox" 
+                placeholder="0" 
+                readonly 
+                aria-label="Calculator Screen"
+            >
         </div>
-        <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class ="operator">*</button>
+
+        <div class="buttons-layout">
+            <div class="row">
+                <button class="operator" data-action="clear" aria-label="All Clear">AC</button>
+                <button class="operator" data-action="delete" aria-label="Delete last">DEL</button>
+                <button class="operator" data-operation="%" aria-label="Percentage">%</button>
+                <button class="operator" data-operation="/" aria-label="Divide">/</button>
+            </div>
+
+            <div class="row">
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+                <button class="operator" data-operation="*" aria-label="Multiply">*</button>
+            </div>
+
+            <div class="row">
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+                <button class="operator" data-operation="-" aria-label="Subtract">-</button>
+            </div>
+
+            <div class="row">
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+                <button class="operator" data-operation="+" aria-label="Add">+</button>
+            </div>
+
+            <div class="row">
+                <button data-number="00">00</button>
+                <button data-number="0">0</button>
+                <button data-number=".">.</button>
+                <button class="equalsBtn" data-action="calculate" aria-label="Equals">=</button>
+            </div>
         </div>
-        <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class ="operator">-</button>
-        </div>
-        <div>
-            <button>3</button>
-            <button>2</button>
-            <button>1</button>
-            <button class ="operator">+</button>
-        </div>
-         <div>
-            <button>00</button>
-            <button>0</button>
-            <button>.</button>
-            <button class="equalsBtn">=</button>
-        </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
